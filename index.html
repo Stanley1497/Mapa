@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+     <title>El salvador</title>      
+    
+     <link type="text/css" rel="stylesheet" href="css/pc.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+
+  </head>
+  <body>
+    
+        <header>
+        <div class="container"><img src="img/u.png" height="60px" width="100px"></div>
+        
+    </header>
+    <script>
+      var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 10,
+          center: new google.maps.LatLng(13.702608572642683,-89.20307239035492),
+          mapTypeId: 'roadmap'
+        });
+        
+        //Recurso de icono
+        var iconBase = 'C:/Users/Uribe/Downloads/mpa/img/'; //Se pone toda la ruta de la pc (Local) para que aparezca el icono
+         var icons = {
+          info: {
+            icon: iconBase + 'udb.png'
+
+          }
+        };
+
+        //ubicacion de las 2 universidades
+        var features = [
+          {
+            position: new google.maps.LatLng(13.67399960386356,-89.2367663),
+            type: 'info'
+          }, {
+            position: new google.maps.LatLng(13.715971088218648,-89.15522580484276),
+            type: 'info'
+          }
+        ];
+
+        // Create markers.
+        features.forEach(function(feature) {
+          var marker = new google.maps.Marker({
+            position: feature.position,
+            icon: icons[feature.type].icon, 
+            map: map
+
+          });
+        });
+
+      }
+    </script>
+    <div id="map">
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD9jML-YPkWUqy9NFF6KQxZhAfzrMAOHGI&callback=initMap">
+    </script>
+    </div>
+    <footer></footer>
+  </body>
+</html>
